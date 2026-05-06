@@ -2,478 +2,555 @@
 ####################################################################################################
 Core 0
 ####################################################################################################
-Cumulative:        Cycles: 4116731               Instructions: 10000000              IPC: 2.42911
+Cumulative:        Cycles: 4122662               Instructions: 10000000              IPC: 2.42562
 
-Periodic:          Cycles: 4116731               Instructions: 10000000              IPC: 2.42911
+Periodic:          Cycles: 4122662               Instructions: 10000000              IPC: 2.42562
 
-CBR_CORRECT                                    1466754       62.784%          1466754       62.784%
-CBR_CORRECT_BTB_MISS_NT_NT                      708561       30.330%           708561       30.330%
-CBR_RECOVER_MISPREDICT                          158592        6.788%           158592        6.788%
-CBR_RECOVER_MISFETCH                                 0        0.000%                0        0.000%
-CBR_RECOVER_BTB_MISS_T_T                           227        0.010%              227        0.010%
-CBR_RECOVER_BTB_MISS_T_NT                         1699        0.073%             1699        0.073%
-CBR_RECOVER_BTB_MISS_NT_T                          361        0.015%              361        0.015%
-                                               2336194      100.000%          2336194      100.000%
-                                                  0.44         0.53              0.44         0.53
+L0_ALL_PREDICTIONS                             1785630       50.000%          1785630       50.000%
+MAIN_ALL_PREDICTIONS                           1785630       50.000%          1785630       50.000%
+                                               3571260      100.000%          3571260      100.000%
+                                                  0.50         0.50              0.50         0.50
 
-BR_CORRECT                                      234912       99.900%           234912       99.900%
-BR_RECOVER                                         234        0.100%              234        0.100%
-                                                235146      100.000%           235146      100.000%
+L0_ALL_RECOVER_AT_EXEC                          284380       93.546%           284380       93.546%
+MAIN_ALL_RECOVER_AT_EXEC                         19619        6.454%            19619        6.454%
+                                                303999      100.000%           303999      100.000%
+                                                  0.06         0.24              0.06         0.24
+
+L0_ALL_RECOVER_AT_DECODE                             0        0.000%                0        0.000%
+MAIN_ALL_RECOVER_AT_DECODE                         246      100.000%              246      100.000%
+                                                   246      100.000%              246      100.000%
+                                                  1.00         1.00              1.00         1.00
+
+L0_ALL_PREDICTIONS_OFFPATH                     1937399       50.000%          1937399       50.000%
+MAIN_ALL_PREDICTIONS_OFFPATH                   1937399       50.000%          1937399       50.000%
+                                               3874798      100.000%          3874798      100.000%
+                                                  0.50         0.50              0.50         0.50
+
+L0_ALL_RECOVER_AT_EXEC_OFFPATH                  308281       51.968%           308281       51.968%
+MAIN_ALL_RECOVER_AT_EXEC_OFFPATH                284929       48.032%           284929       48.032%
+                                                593210      100.000%           593210      100.000%
+                                                  0.48         0.49              0.48         0.49
+
+L0_ALL_RECOVER_AT_DECODE_OFFPATH                     0        0.000%                0        0.000%
+MAIN_ALL_RECOVER_AT_DECODE_OFFPATH                 207      100.000%              207      100.000%
+                                                   207      100.000%              207      100.000%
+                                                  1.00         1.00              1.00         1.00
+
+MAIN_CBR_CORRECT                                800494       68.530%           800494       68.530%
+MAIN_CBR_CORRECT_BTB_MISS_NT_NT                 355054       30.396%           355054       30.396%
+MAIN_CBR_RECOVER_AT_EXEC                         12180        1.043%            12180        1.043%
+MAIN_CBR_RECOVER_AT_DECODE                           0        0.000%                0        0.000%
+MAIN_CBR_RECOVER_BTB_MISS_T_T                       12        0.001%               12        0.001%
+MAIN_CBR_RECOVER_BTB_MISS_T_NT                      75        0.006%               75        0.006%
+MAIN_CBR_RECOVER_BTB_MISS_NT_T                     280        0.024%              280        0.024%
+                                               1168095      100.000%          1168095      100.000%
+                                                  0.33         0.42              0.33         0.42
+
+MAIN_BR_CORRECT                                 117456       99.900%           117456       99.900%
+MAIN_BR_RECOVER                                    117        0.100%              117        0.100%
+                                                117573      100.000%           117573      100.000%
                                                   0.00         0.03              0.00         0.03
 
-ICALL_CORRECT_IBTB                              156688       93.715%           156688       93.715%
-ICALL_CORRECT_BTB                                 2994        1.791%             2994        1.791%
-ICALL_RECOVER_IBTB_MISFETCH                       5646        3.377%             5646        3.377%
-ICALL_RECOVER_BTB_MISFETCH                        1854        1.109%             1854        1.109%
-ICALL_RECOVER_XBTB_MISS                             14        0.008%               14        0.008%
-                                                167196      100.000%           167196      100.000%
+MAIN_ICALL_CORRECT_IBTB                          78176       93.515%            78176       93.515%
+MAIN_ICALL_CORRECT_BTB                            1510        1.806%             1510        1.806%
+MAIN_ICALL_RECOVER_AT_EXEC_IBTB                   2973        3.556%             2973        3.556%
+MAIN_ICALL_RECOVER_AT_EXEC_BTB                     931        1.114%              931        1.114%
+MAIN_ICALL_RECOVER_AT_EXEC_XBTB_MISS                 7        0.008%                7        0.008%
+                                                 83597      100.000%            83597      100.000%
                                                   0.12         0.48              0.12         0.48
 
-IBR_CORRECT_IBTB                                  3078       85.786%             3078       85.786%
-IBR_CORRECT_BTB                                    240        6.689%              240        6.689%
-IBR_RECOVER_IBTB_MISFETCH                          156        4.348%              156        4.348%
-IBR_RECOVER_BTB_MISFETCH                            92        2.564%               92        2.564%
-IBR_RECOVER_XBTB_MISS                               22        0.613%               22        0.613%
-                                                  3588      100.000%             3588      100.000%
-                                                  0.26         0.67              0.26         0.67
+MAIN_IBR_CORRECT_IBTB                             1539       85.786%             1539       85.786%
+MAIN_IBR_CORRECT_BTB                               121        6.745%              121        6.745%
+MAIN_IBR_RECOVER_AT_EXEC_IBTB                       78        4.348%               78        4.348%
+MAIN_IBR_RECOVER_AT_EXEC_BTB                        45        2.508%               45        2.508%
+MAIN_IBR_RECOVER_AT_EXEC_XBTB_MISS                  11        0.613%               11        0.613%
+                                                  1794      100.000%             1794      100.000%
+                                                  0.25         0.67              0.25         0.67
 
-ICO_CORRECT                                          0         -nan%                0         -nan%
-ICO_RECOVER                                          0         -nan%                0         -nan%
+MAIN_ICO_CORRECT                                     0         -nan%                0         -nan%
+MAIN_ICO_RECOVER                                     0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
-RET_CORRECT                                     492178       98.800%           492178       98.800%
-RET_RECOVER                                       5958        1.196%             5958        1.196%
-RET_RECOVER_UFLOW                                   22        0.004%               22        0.004%
-                                                498158      100.000%           498158      100.000%
+MAIN_RET_CORRECT                                246039       98.780%           246039       98.780%
+MAIN_RET_RECOVER                                  3028        1.216%             3028        1.216%
+MAIN_RET_RECOVER_UFLOW                              11        0.004%               11        0.004%
+                                                249078      100.000%           249078      100.000%
                                                   0.01         0.11              0.01         0.11
 
-CALL_CORRECT                                    330752       99.929%           330752       99.929%
-CALL_RECOVER                                       234        0.071%              234        0.071%
-                                                330986      100.000%           330986      100.000%
+MAIN_CALL_CORRECT                               165376       99.929%           165376       99.929%
+MAIN_CALL_RECOVER                                  117        0.071%              117        0.071%
+                                                165493      100.000%           165493      100.000%
                                                   0.00         0.03              0.00         0.03
 
-BTB_CORRECT                                    1180879       76.852%          1180879       76.852%
-BTB_INCORRECT_BUT_TARGET_CORRECT                     0        0.000%                0        0.000%
-BTB_INCORRECT                                   355676       23.148%           355676       23.148%
-                                               1536555      100.000%          1536555      100.000%
-                                                  0.46         0.77              0.46         0.77
+L0_CBR_CORRECT                                  572054       48.973%           572054       48.973%
+L0_CBR_CORRECT_BTB_MISS_NT_NT                   423017       36.214%           423017       36.214%
+L0_CBR_RECOVER_AT_EXEC                          129663       11.100%           129663       11.100%
+L0_CBR_RECOVER_AT_DECODE                             0        0.000%                0        0.000%
+L0_CBR_RECOVER_BTB_MISS_T_T                      24326        2.083%            24326        2.083%
+L0_CBR_RECOVER_BTB_MISS_T_NT                      7599        0.651%             7599        0.651%
+L0_CBR_RECOVER_BTB_MISS_NT_T                     11436        0.979%            11436        0.979%
+                                               1168095      100.000%          1168095      100.000%
+                                                  0.76         0.90              0.76         0.90
 
-IBTB_CORRECT                                     82784       96.946%            82784       96.946%
-IBTB_INCORRECT                                    2608        3.054%             2608        3.054%
-                                                 85392      100.000%            85392      100.000%
-                                                  0.03         0.17              0.03         0.17
+L0_BR_CORRECT                                   106202       90.329%           106202       90.329%
+L0_BR_RECOVER                                    11371        9.671%            11371        9.671%
+                                                117573      100.000%           117573      100.000%
+                                                  0.10         0.28              0.10         0.28
 
-CBR_CORRECT_OFF_PATH                            735758       55.472%           735758       55.472%
-CBR_CORRECT_BTB_MISS_NT_NT_OFF_PATH             368282       27.766%           368282       27.766%
-CBR_RECOVER_MISPREDICT_OFF_PATH                 218431       16.468%           218431       16.468%
-CBR_RECOVER_MISFETCH_OFF_PATH                        0        0.000%                0        0.000%
-CBR_RECOVER_BTB_MISS_T_T_OFF_PATH                   42        0.003%               42        0.003%
-CBR_RECOVER_BTB_MISS_T_NT_OFF_PATH                3759        0.283%             3759        0.283%
-CBR_RECOVER_BTB_MISS_NT_T_OFF_PATH                  91        0.007%               91        0.007%
-                                               1326363      100.000%          1326363      100.000%
-                                                  0.62         0.64              0.62         0.64
+L0_ICALL_CORRECT_IBTB                                0        0.000%                0        0.000%
+L0_ICALL_CORRECT_BTB                              1495        1.788%             1495        1.788%
+L0_ICALL_RECOVER_AT_EXEC_IBTB                    81149       97.072%            81149       97.072%
+L0_ICALL_RECOVER_AT_EXEC_BTB                       902        1.079%              902        1.079%
+L0_ICALL_RECOVER_AT_EXEC_XBTB_MISS                  51        0.061%               51        0.061%
+                                                 83597      100.000%            83597      100.000%
+                                                  1.99         0.18              1.99         0.18
 
-BR_CORRECT_OFF_PATH                             137354       99.961%           137354       99.961%
-BR_RECOVER_OFF_PATH                                 53        0.039%               53        0.039%
-                                                137407      100.000%           137407      100.000%
-                                                  0.00         0.02              0.00         0.02
+L0_IBR_CORRECT_IBTB                                  0        0.000%                0        0.000%
+L0_IBR_CORRECT_BTB                                  69        3.846%               69        3.846%
+L0_IBR_RECOVER_AT_EXEC_IBTB                       1617       90.134%             1617       90.134%
+L0_IBR_RECOVER_AT_EXEC_BTB                          30        1.672%               30        1.672%
+L0_IBR_RECOVER_AT_EXEC_XBTB_MISS                    78        4.348%               78        4.348%
+                                                  1794      100.000%             1794      100.000%
+                                                  2.07         0.64              2.07         0.64
 
-ICALL_CORRECT_IBTB_OFF_PATH                      14199       32.450%            14199       32.450%
-ICALL_CORRECT_BTB_OFF_PATH                       17309       39.558%            17309       39.558%
-ICALL_RECOVER_IBTB_MISFETCH_OFF_PATH              7256       16.583%             7256       16.583%
-ICALL_RECOVER_BTB_MISFETCH_OFF_PATH               4974       11.368%             4974       11.368%
-ICALL_RECOVER_XBTB_MISS_OFF_PATH                    18        0.041%               18        0.041%
-                                                 43756      100.000%            43756      100.000%
-                                                  1.07         0.76              1.07         0.76
-
-IBR_CORRECT_IBTB_OFF_PATH                          245       19.126%              245       19.126%
-IBR_CORRECT_BTB_OFF_PATH                           946       73.849%              946       73.849%
-IBR_RECOVER_IBTB_MISFETCH_OFF_PATH                  10        0.781%               10        0.781%
-IBR_RECOVER_BTB_MISFETCH_OFF_PATH                   78        6.089%               78        6.089%
-IBR_RECOVER_XBTB_MISS_OFF_PATH                       2        0.156%                2        0.156%
-                                                  1281      100.000%             1281      100.000%
-                                                  0.94         0.53              0.94         0.53
-
-ICO_CORRECT_OFF_PATH                                 0         -nan%                0         -nan%
-ICO_RECOVER_OFF_PATH                                 0         -nan%                0         -nan%
+L0_ICO_CORRECT                                       0         -nan%                0         -nan%
+L0_ICO_RECOVER                                       0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
-RET_CORRECT_OFF_PATH                            160580       84.948%           160580       84.948%
-RET_RECOVER_OFF_PATH                             27942       14.781%            27942       14.781%
-RET_RECOVER_UFLOW_OFF_PATH                         512        0.271%              512        0.271%
-                                                189034      100.000%           189034      100.000%
-                                                  0.15         0.34              0.15         0.34
+L0_RET_CORRECT                                  246039       98.780%           246039       98.780%
+L0_RET_RECOVER                                    3028        1.216%             3028        1.216%
+L0_RET_RECOVER_UFLOW                                11        0.004%               11        0.004%
+                                                249078      100.000%           249078      100.000%
+                                                  0.01         0.11              0.01         0.11
 
-CALL_CORRECT_OFF_PATH                           163253       99.963%           163253       99.963%
-CALL_RECOVER_OFF_PATH                               60        0.037%               60        0.037%
-                                                163313      100.000%           163313      100.000%
+L0_CALL_CORRECT                                 152374       92.073%           152374       92.073%
+L0_CALL_RECOVER                                  13119        7.927%            13119        7.927%
+                                                165493      100.000%           165493      100.000%
+                                                  0.08         0.26              0.08         0.26
+
+MAIN_CBR_CORRECT_OFFPATH                        768543       55.998%           768543       55.998%
+MAIN_CBR_CORRECT_BTB_MISS_NT_NT_OFFPATH         377408       27.499%           377408       27.499%
+MAIN_CBR_RECOVER_AT_EXEC_OFFPATH                222715       16.228%           222715       16.228%
+MAIN_CBR_RECOVER_AT_DECODE_OFFPATH                   0        0.000%                0        0.000%
+MAIN_CBR_RECOVER_BTB_MISS_T_T_OFFPATH               44        0.003%               44        0.003%
+MAIN_CBR_RECOVER_BTB_MISS_T_NT_OFFPATH            3550        0.259%             3550        0.259%
+MAIN_CBR_RECOVER_BTB_MISS_NT_T_OFFPATH             180        0.013%              180        0.013%
+                                               1372440      100.000%          1372440      100.000%
+                                                  0.61         0.64              0.61         0.64
+
+MAIN_BR_CORRECT_OFFPATH                         141318       99.938%           141318       99.938%
+MAIN_BR_RECOVER_OFFPATH                             88        0.062%               88        0.062%
+                                                141406      100.000%           141406      100.000%
                                                   0.00         0.02              0.00         0.02
 
-BTB_CORRECT_OFF_PATH                           1299813       77.734%          1299813       77.734%
-BTB_INCORRECT_BUT_TARGET_CORRECT_OFF_PATH             0        0.000%                0        0.000%
-BTB_INCORRECT_OFF_PATH                          372307       22.266%           372307       22.266%
-                                               1672120      100.000%          1672120      100.000%
-                                                  0.45         0.76              0.45         0.76
+MAIN_ICALL_CORRECT_IBTB_OFFPATH                  15111       33.695%            15111       33.695%
+MAIN_ICALL_CORRECT_BTB_OFFPATH                   17012       37.933%            17012       37.933%
+MAIN_ICALL_RECOVER_AT_EXEC_IBTB_OFFPATH           8431       18.799%             8431       18.799%
+MAIN_ICALL_RECOVER_AT_EXEC_BTB_OFFPATH            4271        9.523%             4271        9.523%
+MAIN_ICALL_RECOVER_AT_EXEC_XBTB_MISS_OFFPATH            22        0.049%               22        0.049%
+                                                 44847      100.000%            44847      100.000%
+                                                  1.04         0.74              1.04         0.74
 
-IBTB_CORRECT_OFF_PATH                            21710       48.205%            21710       48.205%
-IBTB_INCORRECT_OFF_PATH                          23327       51.795%            23327       51.795%
-                                                 45037      100.000%            45037      100.000%
-                                                  0.52         0.51              0.52         0.51
+MAIN_IBR_CORRECT_IBTB_OFFPATH                      414       27.785%              414       27.785%
+MAIN_IBR_CORRECT_BTB_OFFPATH                      1035       69.463%             1035       69.463%
+MAIN_IBR_RECOVER_AT_EXEC_IBTB_OFFPATH               10        0.671%               10        0.671%
+MAIN_IBR_RECOVER_AT_EXEC_BTB_OFFPATH                28        1.879%               28        1.879%
+MAIN_IBR_RECOVER_AT_EXEC_XBTB_MISS_OFFPATH             3        0.201%                3        0.201%
+                                                  1490      100.000%             1490      100.000%
+                                                  0.77         0.40              0.77         0.40
 
-CRS_MISS_ON_PATH                                  5980        1.200%             5980        1.200%
-CRS_HIT_ON_PATH                                 492178       98.800%           492178       98.800%
-                                                498158      100.000%           498158      100.000%
-                                                  0.99         0.98              0.99         0.98
+MAIN_ICO_CORRECT_OFFPATH                             0         -nan%                0         -nan%
+MAIN_ICO_RECOVER_OFFPATH                             0         -nan%                0         -nan%
+                                                     0         -nan%                0         -nan%
+                                                  -nan         -nan              -nan         -nan
 
-CRS_MISS_OFF_PATH                                28454       15.052%            28454       15.052%
-CRS_HIT_OFF_PATH                                160580       84.948%           160580       84.948%
-                                                189034      100.000%           189034      100.000%
-                                                  0.85         0.80              0.85         0.80
+MAIN_RET_CORRECT_OFFPATH                        172134       79.014%           172134       79.014%
+MAIN_RET_RECOVER_OFFPATH                         44779       20.555%            44779       20.555%
+MAIN_RET_RECOVER_UFLOW_OFFPATH                     940        0.431%              940        0.431%
+                                                217853      100.000%           217853      100.000%
+                                                  0.21         0.38              0.21         0.38
 
-CRS_CLOBBER                                          0                              0              
+MAIN_CALL_CORRECT_OFFPATH                       159288       99.953%           159288       99.953%
+MAIN_CALL_RECOVER_OFFPATH                           75        0.047%               75        0.047%
+                                                159363      100.000%           159363      100.000%
+                                                  0.00         0.02              0.00         0.02
 
-TARG_ON_PATH_MISS                                 5509        6.451%             5509        6.451%
-TARG_ON_PATH_HIT                                 79883       93.549%            79883       93.549%
-                                                 85392      100.000%            85392      100.000%
-                                                  0.94         0.91              0.94         0.91
+L0_CBR_CORRECT_OFFPATH                          701317       51.100%           701317       51.100%
+L0_CBR_CORRECT_BTB_MISS_NT_NT_OFFPATH           461256       33.608%           461256       33.608%
+L0_CBR_RECOVER_AT_EXEC_OFFPATH                  166802       12.154%           166802       12.154%
+L0_CBR_RECOVER_AT_DECODE_OFFPATH                     0        0.000%                0        0.000%
+L0_CBR_RECOVER_BTB_MISS_T_T_OFFPATH              25029        1.824%            25029        1.824%
+L0_CBR_RECOVER_BTB_MISS_T_NT_OFFPATH              8807        0.642%             8807        0.642%
+L0_CBR_RECOVER_BTB_MISS_NT_T_OFFPATH              9229        0.672%             9229        0.672%
+                                               1372440      100.000%          1372440      100.000%
+                                                  0.72         0.85              0.72         0.85
 
-TARG_OFF_PATH_MISS                               30593       67.929%            30593       67.929%
-TARG_OFF_PATH_HIT                                14444       32.071%            14444       32.071%
-                                                 45037      100.000%            45037      100.000%
-                                                  0.32         0.43              0.32         0.43
+L0_BR_CORRECT_OFFPATH                           127336       90.050%           127336       90.050%
+L0_BR_RECOVER_OFFPATH                            14070        9.950%            14070        9.950%
+                                                141406      100.000%           141406      100.000%
+                                                  0.10         0.29              0.10         0.29
 
-TARG_ON_PATH_WRITE                               85385       94.031%            85385       94.031%
-TARG_OFF_PATH_WRITE                               5420        5.969%             5420        5.969%
-                                                 90805      100.000%            90805      100.000%
+L0_ICALL_CORRECT_IBTB_OFFPATH                        0        0.000%                0        0.000%
+L0_ICALL_CORRECT_BTB_OFFPATH                     16326       36.404%            16326       36.404%
+L0_ICALL_RECOVER_AT_EXEC_IBTB_OFFPATH            23542       52.494%            23542       52.494%
+L0_ICALL_RECOVER_AT_EXEC_BTB_OFFPATH              4167        9.292%             4167        9.292%
+L0_ICALL_RECOVER_AT_EXEC_XBTB_MISS_OFFPATH           812        1.811%              812        1.811%
+                                                 44847      100.000%            44847      100.000%
+                                                  1.77         0.73              1.77         0.73
+
+L0_IBR_CORRECT_IBTB_OFFPATH                          0        0.000%                0        0.000%
+L0_IBR_CORRECT_BTB_OFFPATH                         745       50.000%              745       50.000%
+L0_IBR_RECOVER_AT_EXEC_IBTB_OFFPATH                424       28.456%              424       28.456%
+L0_IBR_RECOVER_AT_EXEC_BTB_OFFPATH                  20        1.342%               20        1.342%
+L0_IBR_RECOVER_AT_EXEC_XBTB_MISS_OFFPATH           301       20.201%              301       20.201%
+                                                  1490      100.000%             1490      100.000%
+                                                  1.92         1.43              1.92         1.43
+
+L0_ICO_CORRECT_OFFPATH                               0         -nan%                0         -nan%
+L0_ICO_RECOVER_OFFPATH                               0         -nan%                0         -nan%
+                                                     0         -nan%                0         -nan%
+                                                  -nan         -nan              -nan         -nan
+
+L0_RET_CORRECT_OFFPATH                          172134       79.014%           172134       79.014%
+L0_RET_RECOVER_OFFPATH                           44779       20.555%            44779       20.555%
+L0_RET_RECOVER_UFLOW_OFFPATH                       940        0.431%              940        0.431%
+                                                217853      100.000%           217853      100.000%
+                                                  0.21         0.38              0.21         0.38
+
+L0_CALL_CORRECT_OFFPATH                         150004       94.127%           150004       94.127%
+L0_CALL_RECOVER_OFFPATH                           9359        5.873%             9359        5.873%
+                                                159363      100.000%           159363      100.000%
                                                   0.06         0.23              0.06         0.23
 
-BTB_ON_PATH_WRITE                                57398       98.981%            57398       98.981%
-BTB_OFF_PATH_WRITE                                 591        1.019%              591        1.019%
-                                                 57989      100.000%            57989      100.000%
-                                                  0.01         0.10              0.01         0.10
+ALL_BTB_CORRECT                                1144467       74.483%          1144467       74.483%
+ALL_BTB_INCORRECT_BUT_TARGET_CORRECT                 0        0.000%                0        0.000%
+ALL_BTB_INCORRECT                               392085       25.517%           392085       25.517%
+                                               1536552      100.000%          1536552      100.000%
+                                                  0.51         0.80              0.51         0.80
 
-BTB_L0_HIT                                     1042025                        1042025              
+ALL_IBTB_CORRECT                                 79715       93.353%            79715       93.353%
+ALL_IBTB_INCORRECT                                5676        6.647%             5676        6.647%
+                                                 85391      100.000%            85391      100.000%
+                                                  0.07         0.24              0.07         0.24
 
-BTB_L0_MISS                                     494530                         494530              
+ALL_BTB_CORRECT_OFFPATH                        1327325       77.190%          1327325       77.190%
+ALL_BTB_INCORRECT_BUT_TARGET_CORRECT_OFFPATH             0        0.000%                0        0.000%
+ALL_BTB_INCORRECT_OFFPATH                       392221       22.810%           392221       22.810%
+                                               1719546      100.000%          1719546      100.000%
+                                                  0.46         0.77              0.46         0.77
 
-BTB_L0_HIT_OFF_PATH                            1172099                        1172099              
+ALL_IBTB_CORRECT_OFFPATH                         15525       33.505%            15525       33.505%
+ALL_IBTB_INCORRECT_OFFPATH                       30812       66.495%            30812       66.495%
+                                                 46337      100.000%            46337      100.000%
+                                                  0.66         0.61              0.66         0.61
 
-BTB_L0_MISS_OFF_PATH                            500021                         500021              
+CRS_MISS                                          6078        1.220%             6078        1.220%
+CRS_HIT                                         492078       98.780%           492078       98.780%
+                                                498156      100.000%           498156      100.000%
+                                                  0.99         0.98              0.99         0.98
 
-BTB_L1_HIT                                     1180875                        1180875              
+CRS_MISS_OFFPATH                                 91438       20.986%            91438       20.986%
+CRS_HIT_OFFPATH                                 344268       79.014%           344268       79.014%
+                                                435706      100.000%           435706      100.000%
+                                                  0.79         0.73              0.79         0.73
 
-BTB_L1_MISS                                     355680                         355680              
+CRS_CLOBBER                                         24                             24              
 
-BTB_L1_HIT_OFF_PATH                            1299811                        1299811              
+IBTB_TARG_CACHE_MISS                              5676        6.647%             5676        6.647%
+IBTB_TARG_CACHE_HIT                              79715       93.353%            79715       93.353%
+                                                 85391      100.000%            85391      100.000%
+                                                  0.93         0.90              0.93         0.90
 
-BTB_L1_MISS_OFF_PATH                            372309                         372309              
+IBTB_TARG_CACHE_MISS_OFFPATH                     30812       66.495%            30812       66.495%
+IBTB_TARG_CACHE_HIT_OFFPATH                      15525       33.505%            15525       33.505%
+                                                 46337      100.000%            46337      100.000%
+                                                  0.34         0.43              0.34         0.43
 
-BTB_MAIN_HIT                                   1180879                        1180879              
+IBTB_TARG_CACHE_WRITE                            85385       93.490%            85385       93.490%
+IBTB_TARG_CACHE_WRITE_OFFPATH                     5946        6.510%             5946        6.510%
+                                                 91331      100.000%            91331      100.000%
+                                                  0.07         0.24              0.07         0.24
 
-BTB_MAIN_MISS                                   355676                         355676              
+BTB_WRITE                                        57536       99.224%            57536       99.224%
+BTB_WRITE_OFFPATH                                  450        0.776%              450        0.776%
+                                                 57986      100.000%            57986      100.000%
+                                                  0.01         0.09              0.01         0.09
 
-BTB_MAIN_HIT_OFF_PATH                          1299813                        1299813              
+BTB_L0_CORRECT                                 1008056       65.605%          1008056       65.605%
+BTB_L0_INCORRECT_BUT_TARGET_CORRECT                  0        0.000%                0        0.000%
+BTB_L0_INCORRECT                                528496       34.395%           528496       34.395%
+                                               1536552      100.000%          1536552      100.000%
+                                                  0.69         0.87              0.69         0.87
 
-BTB_MAIN_MISS_OFF_PATH                          372307                         372307              
+BTB_L1_CORRECT                                 1144464       74.483%          1144464       74.483%
+BTB_L1_INCORRECT_BUT_TARGET_CORRECT                  0        0.000%                0        0.000%
+BTB_L1_INCORRECT                                392088       25.517%           392088       25.517%
+                                               1536552      100.000%          1536552      100.000%
+                                                  0.51         0.80              0.51         0.80
+
+BTB_MAIN_CORRECT                               1144467       74.483%          1144467       74.483%
+BTB_MAIN_INCORRECT_BUT_TARGET_CORRECT                0        0.000%                0        0.000%
+BTB_MAIN_INCORRECT                              392085       25.517%           392085       25.517%
+                                               1536552      100.000%          1536552      100.000%
+                                                  0.51         0.80              0.51         0.80
+
+BTB_L0_CORRECT_OFFPATH                         1179380       68.587%          1179380       68.587%
+BTB_L0_INCORRECT_BUT_TARGET_CORRECT_OFFPATH             0        0.000%                0        0.000%
+BTB_L0_INCORRECT_OFFPATH                        540166       31.413%           540166       31.413%
+                                               1719546      100.000%          1719546      100.000%
+                                                  0.63         0.85              0.63         0.85
+
+BTB_L1_CORRECT_OFFPATH                         1327300       77.189%          1327300       77.189%
+BTB_L1_INCORRECT_BUT_TARGET_CORRECT_OFFPATH             0        0.000%                0        0.000%
+BTB_L1_INCORRECT_OFFPATH                        392246       22.811%           392246       22.811%
+                                               1719546      100.000%          1719546      100.000%
+                                                  0.46         0.77              0.46         0.77
+
+BTB_MAIN_CORRECT_OFFPATH                       1327325       77.190%          1327325       77.190%
+BTB_MAIN_INCORRECT_BUT_TARGET_CORRECT_OFFPATH             0        0.000%                0        0.000%
+BTB_MAIN_INCORRECT_OFFPATH                      392221       22.810%           392221       22.810%
+                                               1719546      100.000%          1719546      100.000%
+                                                  0.46         0.77              0.46         0.77
 
 TARG_HYBRID_CORRECT_TAGLESS                          0         -nan%                0         -nan%
 TARG_HYBRID_CORRECT_TAGGED                           0         -nan%                0         -nan%
-TARG_HYBRID_MISPRED_TAGLESS                          0         -nan%                0         -nan%
-TARG_HYBRID_MISPRED_TAGGED                           0         -nan%                0         -nan%
+TARG_HYBRID_RECOVER_AT_EXEC_TAGLESS                  0         -nan%                0         -nan%
+TARG_HYBRID_RECOVER_AT_EXEC_TAGGED                   0         -nan%                0         -nan%
 TARG_HYBRID_NO_PRED                                  0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
-BP_L0_EARLY_RECOVERIES                          153816       87.839%           153816       87.839%
-BP_MAIN_EXEC_RECOVERIES                          21049       12.020%            21049       12.020%
-BP_MAIN_DECODE_RECOVERIES                          246        0.140%              246        0.140%
-                                                175111      100.000%           175111      100.000%
-                                                  0.12         0.31              0.12         0.31
+BP_L0_EARLY_RECOVERIES                          284380       93.471%           284380       93.471%
+BP_MAIN_EXEC_RECOVERIES                          19619        6.448%            19619        6.448%
+BP_MAIN_DECODE_RECOVERIES                          246        0.081%              246        0.081%
+                                                304245      100.000%           304245      100.000%
+                                                  0.07         0.24              0.07         0.24
 
-SCHEDULED_L0_EARLY_RECOVERIES                   139392       87.633%           139392       87.633%
-SCHEDULED_MAIN_EXEC_RECOVERIES                   19425       12.212%            19425       12.212%
-SCHEDULED_MAIN_DECODE_RECOVERIES                   246        0.155%              246        0.155%
-                                                159063      100.000%           159063      100.000%
-                                                  0.13         0.31              0.13         0.31
+SCHEDULED_L0_EARLY_RECOVERIES                   269583       93.137%           269583       93.137%
+SCHEDULED_MAIN_EXEC_RECOVERIES                   19619        6.778%            19619        6.778%
+SCHEDULED_MAIN_DECODE_RECOVERIES                   246        0.085%              246        0.085%
+                                                289448      100.000%           289448      100.000%
+                                                  0.07         0.25              0.07         0.25
 
-BTB_L1_HIT_SCHED_EARLY_RECOVERY                  10200                          10200              
+PERFORMED_RECOVERIES                            289448                         289448              
 
-BTB_MAIN_HIT_TIGHT_RECOVERY                          0                              0              
+PERFORMED_RECOVERY_LAT                         2370002                        2370002              
 
-PERFORMED_RECOVERIES                            159063                         159063              
+SCHEDULED_MAIN_DECODE_LAT                        14346                          14346              
 
-PERFORMED_RECOVERY_LAT                         2162961                        2162961              
-
-SCHEDULED_MAIN_DECODE_LAT                        13802                          13802              
-
-SCHEDULED_MAIN_EXEC_LAT                        1562695                        1562695              
+SCHEDULED_MAIN_EXEC_LAT                        1555703                        1555703              
 
 SCHEDULED_L0_EARLY_LAT                               0                              0              
 
-BP_L0_PREDICTIONS                              1785634       32.870%          1785634       32.870%
-BP_MAIN_PREDICTIONS                            3646788       67.130%          3646788       67.130%
-                                               5432422      100.000%          5432422      100.000%
-                                                  0.67         0.61              0.67         0.61
-
-BP_L0_MISPRED                                   146971       38.787%           146971       38.787%
-BP_MAIN_MISPRED                                 231944       61.213%           231944       61.213%
-                                                378915      100.000%           378915      100.000%
-                                                  0.61         0.57              0.61         0.57
-
-BP_L0_MISFETCH                                    6845       12.684%             6845       12.684%
-BP_MAIN_MISFETCH                                 47121       87.316%            47121       87.316%
-                                                 53966      100.000%            53966      100.000%
-                                                  0.87         0.82              0.87         0.82
-
-BTB_CORRECT_L0                                       0                              0              
-
-BTB_CORRECT_MAIN                                     0                              0              
-
-BTB_CORRECT_OFF_PATH_L0                              0                              0              
-
-BTB_CORRECT_OFF_PATH_MAIN                            0                              0              
-
-BTB_INCORRECT_L0                                     0                              0              
-
-BTB_INCORRECT_MAIN                                   0                              0              
-
-BTB_INCORRECT_OFF_PATH_L0                            0                              0              
-
-BTB_INCORRECT_OFF_PATH_MAIN                          0                              0              
-
-BTB_INCORRECT_BUT_TARGET_CORRECT_L0                  0                              0              
-
-BTB_INCORRECT_BUT_TARGET_CORRECT_MAIN                0                              0              
-
-BTB_INCORRECT_BUT_TARGET_CORRECT_OFF_PATH_L0             0                              0              
-
-BTB_INCORRECT_BUT_TARGET_CORRECT_OFF_PATH_MAIN             0                              0              
-
-IBTB_CORRECT_L0                                      0                              0              
-
-IBTB_CORRECT_MAIN                                    0                              0              
-
-IBTB_CORRECT_OFF_PATH_L0                             0                              0              
-
-IBTB_CORRECT_OFF_PATH_MAIN                           0                              0              
-
-IBTB_INCORRECT_L0                                    0                              0              
-
-IBTB_INCORRECT_MAIN                                  0                              0              
-
-IBTB_INCORRECT_OFF_PATH_L0                           0                              0              
-
-IBTB_INCORRECT_OFF_PATH_MAIN                         0                              0              
-
-BR_CORRECT_L0                                   117456                         117456              
-
-BR_CORRECT_MAIN                                 117456                         117456              
-
-BR_CORRECT_OFF_PATH_L0                               0                              0              
-
-BR_CORRECT_OFF_PATH_MAIN                        137354                         137354              
-
-BR_RECOVER_L0                                      117                            117              
-
-BR_RECOVER_MAIN                                    117                            117              
-
-BR_RECOVER_OFF_PATH_L0                               0                              0              
-
-BR_RECOVER_OFF_PATH_MAIN                            53                             53              
-
-CBR_RECOVER_MISPREDICT_L0                       146414                         146414              
-
-CBR_RECOVER_MISPREDICT_MAIN                      12178                          12178              
-
-CBR_RECOVER_MISPREDICT_OFF_PATH_L0                   0                              0              
-
-CBR_RECOVER_MISPREDICT_OFF_PATH_MAIN            218431                         218431              
-
-CBR_RECOVER_MISFETCH_L0                              0                              0              
-
-CBR_RECOVER_MISFETCH_MAIN                            0                              0              
-
-CBR_RECOVER_MISFETCH_OFF_PATH_L0                     0                              0              
-
-CBR_RECOVER_MISFETCH_OFF_PATH_MAIN                   0                              0              
-
-CBR_CORRECT_L0                                  666259                         666259              
-
-CBR_CORRECT_MAIN                                800495                         800495              
-
-CBR_CORRECT_OFF_PATH_L0                              0                              0              
-
-CBR_CORRECT_OFF_PATH_MAIN                       735758                         735758              
-
-CBR_RECOVER_BTB_MISS_T_T_L0                        215                            215              
-
-CBR_RECOVER_BTB_MISS_T_T_MAIN                       12                             12              
-
-CBR_RECOVER_BTB_MISS_T_T_OFF_PATH_L0                 0                              0              
-
-CBR_RECOVER_BTB_MISS_T_T_OFF_PATH_MAIN              42                             42              
-
-CBR_RECOVER_BTB_MISS_T_NT_L0                      1624                           1624              
-
-CBR_RECOVER_BTB_MISS_T_NT_MAIN                      75                             75              
-
-CBR_RECOVER_BTB_MISS_T_NT_OFF_PATH_L0                0                              0              
-
-CBR_RECOVER_BTB_MISS_T_NT_OFF_PATH_MAIN           3759                           3759              
-
-CBR_RECOVER_BTB_MISS_NT_T_L0                        79                             79              
-
-CBR_RECOVER_BTB_MISS_NT_T_MAIN                     282                            282              
-
-CBR_RECOVER_BTB_MISS_NT_T_OFF_PATH_L0                0                              0              
-
-CBR_RECOVER_BTB_MISS_NT_T_OFF_PATH_MAIN             91                             91              
-
-CBR_CORRECT_BTB_MISS_NT_NT_L0                   353506                         353506              
-
-CBR_CORRECT_BTB_MISS_NT_NT_MAIN                 355055                         355055              
-
-CBR_CORRECT_BTB_MISS_NT_NT_OFF_PATH_L0               0                              0              
-
-CBR_CORRECT_BTB_MISS_NT_NT_OFF_PATH_MAIN        368282                         368282              
-
-CALL_CORRECT_L0                                 165376                         165376              
-
-CALL_CORRECT_MAIN                               165376                         165376              
-
-CALL_CORRECT_OFF_PATH_L0                             0                              0              
-
-CALL_CORRECT_OFF_PATH_MAIN                      163253                         163253              
-
-CALL_RECOVER_L0                                    117                            117              
-
-CALL_RECOVER_MAIN                                  117                            117              
-
-CALL_RECOVER_OFF_PATH_L0                             0                              0              
-
-CALL_RECOVER_OFF_PATH_MAIN                          60                             60              
-
-IBR_CORRECT_IBTB_L0                               1539                           1539              
-
-IBR_CORRECT_IBTB_MAIN                             1539                           1539              
-
-IBR_CORRECT_IBTB_OFF_PATH_L0                         0                              0              
-
-IBR_CORRECT_IBTB_OFF_PATH_MAIN                     245                            245              
-
-IBR_RECOVER_IBTB_MISFETCH_L0                        78                             78              
-
-IBR_RECOVER_IBTB_MISFETCH_MAIN                      78                             78              
-
-IBR_RECOVER_IBTB_MISFETCH_OFF_PATH_L0                0                              0              
-
-IBR_RECOVER_IBTB_MISFETCH_OFF_PATH_MAIN             10                             10              
-
-IBR_CORRECT_BTB_L0                                 120                            120              
-
-IBR_CORRECT_BTB_MAIN                               120                            120              
-
-IBR_CORRECT_BTB_OFF_PATH_L0                          0                              0              
-
-IBR_CORRECT_BTB_OFF_PATH_MAIN                      946                            946              
-
-IBR_RECOVER_BTB_MISFETCH_L0                         46                             46              
-
-IBR_RECOVER_BTB_MISFETCH_MAIN                       46                             46              
-
-IBR_RECOVER_BTB_MISFETCH_OFF_PATH_L0                 0                              0              
-
-IBR_RECOVER_BTB_MISFETCH_OFF_PATH_MAIN              78                             78              
-
-IBR_RECOVER_XBTB_MISS_L0                            11                             11              
-
-IBR_RECOVER_XBTB_MISS_MAIN                          11                             11              
-
-IBR_RECOVER_XBTB_MISS_OFF_PATH_L0                    0                              0              
-
-IBR_RECOVER_XBTB_MISS_OFF_PATH_MAIN                  2                              2              
-
-ICALL_CORRECT_IBTB_L0                            78344                          78344              
-
-ICALL_CORRECT_IBTB_MAIN                          78344                          78344              
-
-ICALL_CORRECT_IBTB_OFF_PATH_L0                       0                              0              
-
-ICALL_CORRECT_IBTB_OFF_PATH_MAIN                 14199                          14199              
-
-ICALL_RECOVER_IBTB_MISFETCH_L0                    2823                           2823              
-
-ICALL_RECOVER_IBTB_MISFETCH_MAIN                  2823                           2823              
-
-ICALL_RECOVER_IBTB_MISFETCH_OFF_PATH_L0              0                              0              
-
-ICALL_RECOVER_IBTB_MISFETCH_OFF_PATH_MAIN          7256                           7256              
-
-ICALL_CORRECT_BTB_L0                              1497                           1497              
-
-ICALL_CORRECT_BTB_MAIN                            1497                           1497              
-
-ICALL_CORRECT_BTB_OFF_PATH_L0                        0                              0              
-
-ICALL_CORRECT_BTB_OFF_PATH_MAIN                  17309                          17309              
-
-ICALL_RECOVER_BTB_MISFETCH_L0                      927                            927              
-
-ICALL_RECOVER_BTB_MISFETCH_MAIN                    927                            927              
-
-ICALL_RECOVER_BTB_MISFETCH_OFF_PATH_L0               0                              0              
-
-ICALL_RECOVER_BTB_MISFETCH_OFF_PATH_MAIN          4974                           4974              
-
-ICALL_RECOVER_XBTB_MISS_L0                           7                              7              
-
-ICALL_RECOVER_XBTB_MISS_MAIN                         7                              7              
-
-ICALL_RECOVER_XBTB_MISS_OFF_PATH_L0                  0                              0              
-
-ICALL_RECOVER_XBTB_MISS_OFF_PATH_MAIN               18                             18              
-
-ICO_RECOVER_L0                                       0                              0              
-
-ICO_RECOVER_MAIN                                     0                              0              
-
-ICO_RECOVER_OFF_PATH_L0                              0                              0              
-
-ICO_RECOVER_OFF_PATH_MAIN                            0                              0              
-
-ICO_CORRECT_L0                                       0                              0              
-
-ICO_CORRECT_MAIN                                     0                              0              
-
-ICO_CORRECT_OFF_PATH_L0                              0                              0              
-
-ICO_CORRECT_OFF_PATH_MAIN                            0                              0              
-
-RET_RECOVER_UFLOW_L0                                11                             11              
-
-RET_RECOVER_UFLOW_MAIN                              11                             11              
-
-RET_RECOVER_UFLOW_OFF_PATH_L0                        0                              0              
-
-RET_RECOVER_UFLOW_OFF_PATH_MAIN                    512                            512              
-
-RET_RECOVER_L0                                    2971                           2971              
-
-RET_RECOVER_MAIN                                  2987                           2987              
-
-RET_RECOVER_OFF_PATH_L0                              0                              0              
-
-RET_RECOVER_OFF_PATH_MAIN                        27942                          27942              
-
-RET_CORRECT_L0                                  246097                         246097              
-
-RET_CORRECT_MAIN                                246081                         246081              
-
-RET_CORRECT_OFF_PATH_L0                              0                              0              
-
-RET_CORRECT_OFF_PATH_MAIN                       160580                         160580              
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_1                  0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_2                  2        0.813%                2        0.813%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_3                  0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_4                  0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_5                  0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_6                  0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_7                  0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_8                 82       33.333%               82       33.333%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_9                 42       17.073%               42       17.073%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_10                23        9.350%               23        9.350%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_11                11        4.472%               11        4.472%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_12                 4        1.626%                4        1.626%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_13                 5        2.033%                5        2.033%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_14                 3        1.220%                3        1.220%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_15                 2        0.813%                2        0.813%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_16                 1        0.407%                1        0.407%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_17                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_18                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_19                 1        0.407%                1        0.407%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_20                 1        0.407%                1        0.407%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_21                 1        0.407%                1        0.407%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_22                 7        2.846%                7        2.846%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_23                 4        1.626%                4        1.626%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_24                 7        2.846%                7        2.846%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_25                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_26                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_27                 1        0.407%                1        0.407%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_28                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_29                 1        0.407%                1        0.407%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_30                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_31                 2        0.813%                2        0.813%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_32                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_33                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_34                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_35                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_36                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_37                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_38                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_39                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_40                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_41                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_42                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_43                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_44                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_45                 1        0.407%                1        0.407%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_46                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_47                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_48                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_49                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_50                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_51                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_52                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_53                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_54                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_55                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_56                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_57                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_58                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_59                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_60                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_61                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_62                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_63                 1        0.407%                1        0.407%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_64                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_65                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_66                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_67                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_68                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_69                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_70                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_71                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_72                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_73                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_74                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_75                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_76                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_77                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_78                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_79                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_80                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_81                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_82                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_83                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_84                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_85                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_86                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_87                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_88                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_89                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_90                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_91                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_92                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_93                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_94                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_95                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_96                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_97                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_98                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_99                 0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_100                0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_DECODE_LAT_GT100             44       17.886%               44       17.886%
+                                                   246      100.000%              246      100.000%
+                                                 26.37        36.72             26.37        36.72
+
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_1                    0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_2                    0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_3                    0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_4                    0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_5                    0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_6                    0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_7                    0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_8                    0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_9                    0        0.000%                0        0.000%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_10                   1        0.005%                1        0.005%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_11                 292        1.488%              292        1.488%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_12                  63        0.321%               63        0.321%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_13                  15        0.076%               15        0.076%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_14                   3        0.015%                3        0.015%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_15                  14        0.071%               14        0.071%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_16                 291        1.483%              291        1.483%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_17                  81        0.413%               81        0.413%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_18                 542        2.763%              542        2.763%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_19                 151        0.770%              151        0.770%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_20                  99        0.505%               99        0.505%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_21                 110        0.561%              110        0.561%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_22                 224        1.142%              224        1.142%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_23                 421        2.146%              421        2.146%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_24                 229        1.167%              229        1.167%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_25                 334        1.702%              334        1.702%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_26                 169        0.861%              169        0.861%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_27                 102        0.520%              102        0.520%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_28                 209        1.065%              209        1.065%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_29                 309        1.575%              309        1.575%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_30                 285        1.453%              285        1.453%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_31                 230        1.172%              230        1.172%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_32                 202        1.030%              202        1.030%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_33                 237        1.208%              237        1.208%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_34                 135        0.688%              135        0.688%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_35                 121        0.617%              121        0.617%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_36                 321        1.636%              321        1.636%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_37                 216        1.101%              216        1.101%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_38                 153        0.780%              153        0.780%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_39                 306        1.560%              306        1.560%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_40                 317        1.616%              317        1.616%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_41                 222        1.132%              222        1.132%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_42                 185        0.943%              185        0.943%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_43                 229        1.167%              229        1.167%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_44                 203        1.035%              203        1.035%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_45                 181        0.923%              181        0.923%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_46                 305        1.555%              305        1.555%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_47                 297        1.514%              297        1.514%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_48                 240        1.223%              240        1.223%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_49                 246        1.254%              246        1.254%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_50                 174        0.887%              174        0.887%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_51                 183        0.933%              183        0.933%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_52                 240        1.223%              240        1.223%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_53                 288        1.468%              288        1.468%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_54                 226        1.152%              226        1.152%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_55                 291        1.483%              291        1.483%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_56                 279        1.422%              279        1.422%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_57                 226        1.152%              226        1.152%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_58                 169        0.861%              169        0.861%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_59                 179        0.912%              179        0.912%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_60                 167        0.851%              167        0.851%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_61                 177        0.902%              177        0.902%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_62                 125        0.637%              125        0.637%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_63                 121        0.617%              121        0.617%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_64                 171        0.872%              171        0.872%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_65                 139        0.708%              139        0.708%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_66                 139        0.708%              139        0.708%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_67                 121        0.617%              121        0.617%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_68                 172        0.877%              172        0.877%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_69                 131        0.668%              131        0.668%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_70                 120        0.612%              120        0.612%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_71                 141        0.719%              141        0.719%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_72                 121        0.617%              121        0.617%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_73                 105        0.535%              105        0.535%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_74                 138        0.703%              138        0.703%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_75                 109        0.556%              109        0.556%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_76                  99        0.505%               99        0.505%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_77                 104        0.530%              104        0.530%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_78                  92        0.469%               92        0.469%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_79                  96        0.489%               96        0.489%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_80                  84        0.428%               84        0.428%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_81                  95        0.484%               95        0.484%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_82                  84        0.428%               84        0.428%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_83                  68        0.347%               68        0.347%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_84                  90        0.459%               90        0.459%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_85                  77        0.392%               77        0.392%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_86                  73        0.372%               73        0.372%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_87                  84        0.428%               84        0.428%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_88                  72        0.367%               72        0.367%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_89                  84        0.428%               84        0.428%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_90                  48        0.245%               48        0.245%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_91                  63        0.321%               63        0.321%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_92                  71        0.362%               71        0.362%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_93                  62        0.316%               62        0.316%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_94                  53        0.270%               53        0.270%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_95                  53        0.270%               53        0.270%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_96                  67        0.342%               67        0.342%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_97                  37        0.189%               37        0.189%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_98                  61        0.311%               61        0.311%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_99                  50        0.255%               50        0.255%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_100                 57        0.291%               57        0.291%
+MAIN_BRANCH_RESOLVE_AT_EXEC_LAT_GT100             5053       25.756%             5053       25.756%
+                                                 19619      100.000%            19619      100.000%
+                                                 60.18        42.85             60.18        42.85
 
 PRED_TO_UPDATE_CYCLES_0                              0         -nan%                0         -nan%
 PRED_TO_UPDATE_CYCLES_1                              0         -nan%                0         -nan%
@@ -509,57 +586,57 @@ PRED_TO_UPDATE_CYCLES_30                             0         -nan%            
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
-BP_ON_PATH_CONF_MISPRED                              0         -nan%                0         -nan%
+BP_ON_PATH_CONF_RECOVER_AT_EXEC                      0         -nan%                0         -nan%
 BP_ON_PATH_CONF_CORRECT                              0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
-BP_OFF_PATH_CONF_MISPRED                             0         -nan%                0         -nan%
+BP_OFF_PATH_CONF_RECOVER_AT_EXEC                     0         -nan%                0         -nan%
 BP_OFF_PATH_CONF_CORRECT                             0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
-BP_ON_PATH_PRED_MIS_CONF_MISPRED                     0         -nan%                0         -nan%
+BP_ON_PATH_PRED_MIS_CONF_RECOVER_AT_EXEC             0         -nan%                0         -nan%
 BP_ON_PATH_PRED_MIS_CONF_CORRECT                     0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
-BP_ON_PATH_PRED_COR_CONF_MISPRED                     0         -nan%                0         -nan%
+BP_ON_PATH_PRED_COR_CONF_RECOVER_AT_EXEC             0         -nan%                0         -nan%
 BP_ON_PATH_PRED_COR_CONF_CORRECT                     0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
-BP_OFF_PATH_PRED_MIS_CONF_MISPRED                    0         -nan%                0         -nan%
+BP_OFF_PATH_PRED_MIS_CONF_RECOVER_AT_EXEC             0         -nan%                0         -nan%
 BP_OFF_PATH_PRED_MIS_CONF_CORRECT                    0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
-BP_OFF_PATH_PRED_COR_CONF_MISPRED                    0         -nan%                0         -nan%
+BP_OFF_PATH_PRED_COR_CONF_RECOVER_AT_EXEC             0         -nan%                0         -nan%
 BP_OFF_PATH_PRED_COR_CONF_CORRECT                    0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
-ONPATH_CONF_MISPRED                                  0         -nan%                0         -nan%
+ONPATH_CONF_RECOVER_AT_EXEC                          0         -nan%                0         -nan%
 ONPATH_CONF_CORRECT                                  0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
-ONPATH_ON_PATH_CONF_MISPRED                          0         -nan%                0         -nan%
+ONPATH_ON_PATH_CONF_RECOVER_AT_EXEC                  0         -nan%                0         -nan%
 ONPATH_ON_PATH_CONF_CORRECT                          0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
-ONPATH_OFF_PATH_CONF_MISPRED                         0         -nan%                0         -nan%
+ONPATH_OFF_PATH_CONF_RECOVER_AT_EXEC                 0         -nan%                0         -nan%
 ONPATH_OFF_PATH_CONF_CORRECT                         0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
-PRED_ONPATH_CONF_MISPRED                             0         -nan%                0         -nan%
+PRED_ONPATH_CONF_RECOVER_AT_EXEC                     0         -nan%                0         -nan%
 PRED_ONPATH_CONF_CORRECT                             0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
-PRED_OFFPATH_CONF_MISPRED                            0         -nan%                0         -nan%
+PRED_OFFPATH_CONF_RECOVER_AT_EXEC                    0         -nan%                0         -nan%
 PRED_OFFPATH_CONF_CORRECT                            0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
@@ -690,12 +767,12 @@ GSKEW2BC_2BC                                         0         -nan%            
                                                   -nan         -nan              -nan         -nan
 
 FUTGSHARE_INIT_ON_PATH_CORRECT                       0         -nan%                0         -nan%
-FUTGSHARE_INIT_ON_PATH_MISPREDICT                    0         -nan%                0         -nan%
+FUTGSHARE_INIT_ON_PATH_RECOVER_AT_EXEC               0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
 FUTGSHARE_INIT_OFF_PATH_CORRECT                      0         -nan%                0         -nan%
-FUTGSHARE_INIT_OFF_PATH_MISPREDICT                   0         -nan%                0         -nan%
+FUTGSHARE_INIT_OFF_PATH_RECOVER_AT_EXEC              0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
@@ -710,176 +787,176 @@ FUTGSHARE_CHANGED_SCREWED_OFF_PATH                   0         -nan%            
                                                   -nan         -nan              -nan         -nan
 
 FUTGSHARE_ORIG_CORRECT_FUT_CORRECT_ON_PATH             0         -nan%                0         -nan%
-FUTGSHARE_ORIG_MISPRED_FUT_CORRECT_ON_PATH             0         -nan%                0         -nan%
-FUTGSHARE_ORIG_CORRECT_FUT_MISPRED_ON_PATH             0         -nan%                0         -nan%
-FUTGSHARE_ORIG_MISPRED_FUT_MISPRED_ON_PATH             0         -nan%                0         -nan%
+FUTGSHARE_ORIG_RECOVER_AT_EXEC_FUT_CORRECT_ON_PATH             0         -nan%                0         -nan%
+FUTGSHARE_ORIG_CORRECT_FUT_RECOVER_AT_EXEC_ON_PATH             0         -nan%                0         -nan%
+FUTGSHARE_ORIG_RECOVER_AT_EXEC_FUT_RECOVER_AT_EXEC_ON_PATH             0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
 FUTGSHARE_ORIG_CORRECT_FUT_CORRECT_OFF_PATH             0         -nan%                0         -nan%
-FUTGSHARE_ORIG_MISPRED_FUT_CORRECT_OFF_PATH             0         -nan%                0         -nan%
-FUTGSHARE_ORIG_CORRECT_FUT_MISPRED_OFF_PATH             0         -nan%                0         -nan%
-FUTGSHARE_ORIG_MISPRED_FUT_MISPRED_OFF_PATH             0         -nan%                0         -nan%
+FUTGSHARE_ORIG_RECOVER_AT_EXEC_FUT_CORRECT_OFF_PATH             0         -nan%                0         -nan%
+FUTGSHARE_ORIG_CORRECT_FUT_RECOVER_AT_EXEC_OFF_PATH             0         -nan%                0         -nan%
+FUTGSHARE_ORIG_RECOVER_AT_EXEC_FUT_RECOVER_AT_EXEC_OFF_PATH             0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
 FUTGSHARE_ON_PATH_CORRECT_0                          0         -nan%                0         -nan%
-FUTGSHARE_ON_PATH_MISPREDICT_0                       0         -nan%                0         -nan%
+FUTGSHARE_ON_PATH_RECOVER_AT_EXEC_0                  0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
 FUTGSHARE_OFF_PATH_CORRECT_0                         0         -nan%                0         -nan%
-FUTGSHARE_OFF_PATH_MISPREDICT_0                      0         -nan%                0         -nan%
+FUTGSHARE_OFF_PATH_RECOVER_AT_EXEC_0                 0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
 FUTGSHARE_ON_PATH_CORRECT_1                          0         -nan%                0         -nan%
-FUTGSHARE_ON_PATH_MISPREDICT_1                       0         -nan%                0         -nan%
+FUTGSHARE_ON_PATH_RECOVER_AT_EXEC_1                  0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
 FUTGSHARE_OFF_PATH_CORRECT_1                         0         -nan%                0         -nan%
-FUTGSHARE_OFF_PATH_MISPREDICT_1                      0         -nan%                0         -nan%
+FUTGSHARE_OFF_PATH_RECOVER_AT_EXEC_1                 0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
 FUTGSHARE_ON_PATH_CORRECT_2                          0         -nan%                0         -nan%
-FUTGSHARE_ON_PATH_MISPREDICT_2                       0         -nan%                0         -nan%
+FUTGSHARE_ON_PATH_RECOVER_AT_EXEC_2                  0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
 FUTGSHARE_OFF_PATH_CORRECT_2                         0         -nan%                0         -nan%
-FUTGSHARE_OFF_PATH_MISPREDICT_2                      0         -nan%                0         -nan%
+FUTGSHARE_OFF_PATH_RECOVER_AT_EXEC_2                 0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
 FUTGSHARE_ON_PATH_CORRECT_3                          0         -nan%                0         -nan%
-FUTGSHARE_ON_PATH_MISPREDICT_3                       0         -nan%                0         -nan%
+FUTGSHARE_ON_PATH_RECOVER_AT_EXEC_3                  0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
 FUTGSHARE_OFF_PATH_CORRECT_3                         0         -nan%                0         -nan%
-FUTGSHARE_OFF_PATH_MISPREDICT_3                      0         -nan%                0         -nan%
+FUTGSHARE_OFF_PATH_RECOVER_AT_EXEC_3                 0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
 FUTGSHARE_ON_PATH_CORRECT_4                          0         -nan%                0         -nan%
-FUTGSHARE_ON_PATH_MISPREDICT_4                       0         -nan%                0         -nan%
+FUTGSHARE_ON_PATH_RECOVER_AT_EXEC_4                  0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
 FUTGSHARE_OFF_PATH_CORRECT_4                         0         -nan%                0         -nan%
-FUTGSHARE_OFF_PATH_MISPREDICT_4                      0         -nan%                0         -nan%
+FUTGSHARE_OFF_PATH_RECOVER_AT_EXEC_4                 0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
 FUTGSHARE_ON_PATH_CORRECT_5                          0         -nan%                0         -nan%
-FUTGSHARE_ON_PATH_MISPREDICT_5                       0         -nan%                0         -nan%
+FUTGSHARE_ON_PATH_RECOVER_AT_EXEC_5                  0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
 FUTGSHARE_OFF_PATH_CORRECT_5                         0         -nan%                0         -nan%
-FUTGSHARE_OFF_PATH_MISPREDICT_5                      0         -nan%                0         -nan%
+FUTGSHARE_OFF_PATH_RECOVER_AT_EXEC_5                 0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
 FUTGSHARE_ON_PATH_CORRECT_6                          0         -nan%                0         -nan%
-FUTGSHARE_ON_PATH_MISPREDICT_6                       0         -nan%                0         -nan%
+FUTGSHARE_ON_PATH_RECOVER_AT_EXEC_6                  0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
 FUTGSHARE_OFF_PATH_CORRECT_6                         0         -nan%                0         -nan%
-FUTGSHARE_OFF_PATH_MISPREDICT_6                      0         -nan%                0         -nan%
+FUTGSHARE_OFF_PATH_RECOVER_AT_EXEC_6                 0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
 FUTGSHARE_ON_PATH_CORRECT_7                          0         -nan%                0         -nan%
-FUTGSHARE_ON_PATH_MISPREDICT_7                       0         -nan%                0         -nan%
+FUTGSHARE_ON_PATH_RECOVER_AT_EXEC_7                  0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
 FUTGSHARE_OFF_PATH_CORRECT_7                         0         -nan%                0         -nan%
-FUTGSHARE_OFF_PATH_MISPREDICT_7                      0         -nan%                0         -nan%
+FUTGSHARE_OFF_PATH_RECOVER_AT_EXEC_7                 0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
 FUTGSHARE_ON_PATH_CORRECT_8                          0         -nan%                0         -nan%
-FUTGSHARE_ON_PATH_MISPREDICT_8                       0         -nan%                0         -nan%
+FUTGSHARE_ON_PATH_RECOVER_AT_EXEC_8                  0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
 FUTGSHARE_OFF_PATH_CORRECT_8                         0         -nan%                0         -nan%
-FUTGSHARE_OFF_PATH_MISPREDICT_8                      0         -nan%                0         -nan%
+FUTGSHARE_OFF_PATH_RECOVER_AT_EXEC_8                 0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
 FUTGSHARE_ON_PATH_CORRECT_9                          0         -nan%                0         -nan%
-FUTGSHARE_ON_PATH_MISPREDICT_9                       0         -nan%                0         -nan%
+FUTGSHARE_ON_PATH_RECOVER_AT_EXEC_9                  0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
 FUTGSHARE_OFF_PATH_CORRECT_9                         0         -nan%                0         -nan%
-FUTGSHARE_OFF_PATH_MISPREDICT_9                      0         -nan%                0         -nan%
+FUTGSHARE_OFF_PATH_RECOVER_AT_EXEC_9                 0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
 FUTGSHARE_ON_PATH_CORRECT_10                         0         -nan%                0         -nan%
-FUTGSHARE_ON_PATH_MISPREDICT_10                      0         -nan%                0         -nan%
+FUTGSHARE_ON_PATH_RECOVER_AT_EXEC_10                 0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
 FUTGSHARE_OFF_PATH_CORRECT_10                        0         -nan%                0         -nan%
-FUTGSHARE_OFF_PATH_MISPREDICT_10                     0         -nan%                0         -nan%
+FUTGSHARE_OFF_PATH_RECOVER_AT_EXEC_10                0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
 FUTGSHARE_ON_PATH_CORRECT_11                         0         -nan%                0         -nan%
-FUTGSHARE_ON_PATH_MISPREDICT_11                      0         -nan%                0         -nan%
+FUTGSHARE_ON_PATH_RECOVER_AT_EXEC_11                 0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
 FUTGSHARE_OFF_PATH_CORRECT_11                        0         -nan%                0         -nan%
-FUTGSHARE_OFF_PATH_MISPREDICT_11                     0         -nan%                0         -nan%
+FUTGSHARE_OFF_PATH_RECOVER_AT_EXEC_11                0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
 FUTGSHARE_ON_PATH_CORRECT_12                         0         -nan%                0         -nan%
-FUTGSHARE_ON_PATH_MISPREDICT_12                      0         -nan%                0         -nan%
+FUTGSHARE_ON_PATH_RECOVER_AT_EXEC_12                 0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
 FUTGSHARE_OFF_PATH_CORRECT_12                        0         -nan%                0         -nan%
-FUTGSHARE_OFF_PATH_MISPREDICT_12                     0         -nan%                0         -nan%
+FUTGSHARE_OFF_PATH_RECOVER_AT_EXEC_12                0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
 FUTGSHARE_ON_PATH_CORRECT_13                         0         -nan%                0         -nan%
-FUTGSHARE_ON_PATH_MISPREDICT_13                      0         -nan%                0         -nan%
+FUTGSHARE_ON_PATH_RECOVER_AT_EXEC_13                 0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
 FUTGSHARE_OFF_PATH_CORRECT_13                        0         -nan%                0         -nan%
-FUTGSHARE_OFF_PATH_MISPREDICT_13                     0         -nan%                0         -nan%
+FUTGSHARE_OFF_PATH_RECOVER_AT_EXEC_13                0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
 FUTGSHARE_ON_PATH_CORRECT_14                         0         -nan%                0         -nan%
-FUTGSHARE_ON_PATH_MISPREDICT_14                      0         -nan%                0         -nan%
+FUTGSHARE_ON_PATH_RECOVER_AT_EXEC_14                 0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
 FUTGSHARE_OFF_PATH_CORRECT_14                        0         -nan%                0         -nan%
-FUTGSHARE_OFF_PATH_MISPREDICT_14                     0         -nan%                0         -nan%
+FUTGSHARE_OFF_PATH_RECOVER_AT_EXEC_14                0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
 FUTGSHARE_ON_PATH_CORRECT_15                         0         -nan%                0         -nan%
-FUTGSHARE_ON_PATH_MISPREDICT_15                      0         -nan%                0         -nan%
+FUTGSHARE_ON_PATH_RECOVER_AT_EXEC_15                 0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
 FUTGSHARE_OFF_PATH_CORRECT_15                        0         -nan%                0         -nan%
-FUTGSHARE_OFF_PATH_MISPREDICT_15                     0         -nan%                0         -nan%
+FUTGSHARE_OFF_PATH_RECOVER_AT_EXEC_15                0         -nan%                0         -nan%
                                                      0         -nan%                0         -nan%
                                                   -nan         -nan              -nan         -nan
 
@@ -1085,12 +1162,12 @@ BTB_UPDATE_BTB_HIT_JITTED_CF_CBR                     0        0.000%            
 BTB_UPDATE_BTB_HIT_JITTED_CF_CALL                    0        0.000%                0        0.000%
 BTB_UPDATE_BTB_HIT_JITTED_CF_IBR                     0        0.000%                0        0.000%
 BTB_UPDATE_BTB_HIT_JITTED_CF_ICALL                 492        2.022%              492        2.022%
-BTB_UPDATE_BTB_HIT_JITTED_CF_ICO                 23836       97.978%            23836       97.978%
+BTB_UPDATE_BTB_HIT_JITTED_CF_ICO                 23837       97.978%            23837       97.978%
 BTB_UPDATE_BTB_HIT_JITTED_CF_RET                     0        0.000%                0        0.000%
-                                                 24328      100.000%            24328      100.000%
+                                                 24329      100.000%            24329      100.000%
                                                   5.98         0.14              5.98         0.14
 
-RESTEER_BTB_MISS_NOT_CF                          32920       62.596%            32920       62.596%
+RESTEER_BTB_MISS_NOT_CF                          32920       62.366%            32920       62.366%
 RESTEER_BTB_MISS_CF_BR                               0        0.000%                0        0.000%
 RESTEER_BTB_MISS_CF_CBR                            117        0.222%              117        0.222%
 RESTEER_BTB_MISS_CF_REP                             12        0.023%               12        0.023%
@@ -1099,91 +1176,91 @@ RESTEER_BTB_MISS_CF_IBR                            117        0.222%            
 RESTEER_BTB_MISS_CF_ICALL                            0        0.000%                0        0.000%
 RESTEER_BTB_MISS_CF_ICO                              0        0.000%                0        0.000%
 RESTEER_BTB_MISS_CF_RET                              0        0.000%                0        0.000%
-RESTEER_MISPRED_NOT_CF                               0        0.000%                0        0.000%
-RESTEER_MISPRED_CF_BR                                0        0.000%                0        0.000%
-RESTEER_MISPRED_CF_CBR                           12460       23.692%            12460       23.692%
-RESTEER_MISPRED_CF_REP                               0        0.000%                0        0.000%
-RESTEER_MISPRED_CF_CALL                              0        0.000%                0        0.000%
-RESTEER_MISPRED_CF_IBR                              11        0.021%               11        0.021%
-RESTEER_MISPRED_CF_ICALL                             7        0.013%                7        0.013%
-RESTEER_MISPRED_CF_ICO                               0        0.000%                0        0.000%
-RESTEER_MISPRED_CF_RET                              11        0.021%               11        0.021%
-RESTEER_MISFETCH_NOT_CF                              0        0.000%                0        0.000%
-RESTEER_MISFETCH_CF_BR                               0        0.000%                0        0.000%
-RESTEER_MISFETCH_CF_CBR                             75        0.143%               75        0.143%
-RESTEER_MISFETCH_CF_REP                              0        0.000%                0        0.000%
-RESTEER_MISFETCH_CF_CALL                             0        0.000%                0        0.000%
-RESTEER_MISFETCH_CF_IBR                            124        0.236%              124        0.236%
-RESTEER_MISFETCH_CF_ICALL                         3750        7.130%             3750        7.130%
-RESTEER_MISFETCH_CF_ICO                              0        0.000%                0        0.000%
-RESTEER_MISFETCH_CF_RET                           2987        5.680%             2987        5.680%
+RESTEER_RECOVER_AT_EXEC_NOT_CF                       0        0.000%                0        0.000%
+RESTEER_RECOVER_AT_EXEC_CF_BR                        0        0.000%                0        0.000%
+RESTEER_RECOVER_AT_EXEC_CF_CBR                   12535       23.747%            12535       23.747%
+RESTEER_RECOVER_AT_EXEC_CF_REP                       0        0.000%                0        0.000%
+RESTEER_RECOVER_AT_EXEC_CF_CALL                      0        0.000%                0        0.000%
+RESTEER_RECOVER_AT_EXEC_CF_IBR                     134        0.254%              134        0.254%
+RESTEER_RECOVER_AT_EXEC_CF_ICALL                  3911        7.409%             3911        7.409%
+RESTEER_RECOVER_AT_EXEC_CF_ICO                       0        0.000%                0        0.000%
+RESTEER_RECOVER_AT_EXEC_CF_RET                    3039        5.757%             3039        5.757%
+RESTEER_RECOVER_AT_DECODE_NOT_CF                     0        0.000%                0        0.000%
+RESTEER_RECOVER_AT_DECODE_CF_BR                      0        0.000%                0        0.000%
+RESTEER_RECOVER_AT_DECODE_CF_CBR                     0        0.000%                0        0.000%
+RESTEER_RECOVER_AT_DECODE_CF_REP                     0        0.000%                0        0.000%
+RESTEER_RECOVER_AT_DECODE_CF_CALL                    0        0.000%                0        0.000%
+RESTEER_RECOVER_AT_DECODE_CF_IBR                     0        0.000%                0        0.000%
+RESTEER_RECOVER_AT_DECODE_CF_ICALL                   0        0.000%                0        0.000%
+RESTEER_RECOVER_AT_DECODE_CF_ICO                     0        0.000%                0        0.000%
+RESTEER_RECOVER_AT_DECODE_CF_RET                     0        0.000%                0        0.000%
 RESTEER_NO_TARGET_CF_IBR                             0        0.000%                0        0.000%
 RESTEER_NO_TARGET_CF_ICALL                           0        0.000%                0        0.000%
 RESTEER_NO_TARGET_CF_ICO                             0        0.000%                0        0.000%
 RESTEER_NO_TARGET_CF_RET                             0        0.000%                0        0.000%
-                                                 52591      100.000%            52591      100.000%
-                                                  5.90         7.32              5.90         7.32
+                                                 52785      100.000%            52785      100.000%
+                                                  4.75         5.09              4.75         5.09
 
-TAGESCL_COMP_TAGE_BASE_CORRECT                  510778       43.727%           510778       43.727%
-TAGESCL_COMP_TAGE_BASE_MISPREDICT                  725        0.062%              725        0.062%
+TAGESCL_COMP_TAGE_BASE_CORRECT                  510776       43.727%           510776       43.727%
+TAGESCL_COMP_TAGE_BASE_RECOVER_AT_EXEC             725        0.062%              725        0.062%
 TAGESCL_COMP_TAGE_SHORT_CORRECT                 407488       34.885%           407488       34.885%
-TAGESCL_COMP_TAGE_SHORT_MISPREDICT                4424        0.379%             4424        0.379%
+TAGESCL_COMP_TAGE_SHORT_RECOVER_AT_EXEC           4424        0.379%             4424        0.379%
 TAGESCL_COMP_TAGE_LONG_CORRECT                  232001       19.861%           232001       19.861%
-TAGESCL_COMP_TAGE_LONG_MISPREDICT                 5751        0.492%             5751        0.492%
+TAGESCL_COMP_TAGE_LONG_RECOVER_AT_EXEC            5751        0.492%             5751        0.492%
 TAGESCL_COMP_LOOP_CORRECT                          403        0.035%              403        0.035%
-TAGESCL_COMP_LOOP_MISPREDICT                         0        0.000%                0        0.000%
+TAGESCL_COMP_LOOP_RECOVER_AT_EXEC                    0        0.000%                0        0.000%
 TAGESCL_COMP_SC_CORRECT                           4892        0.419%             4892        0.419%
-TAGESCL_COMP_SC_MISPREDICT                        1635        0.140%             1635        0.140%
-                                               1168097      100.000%          1168097      100.000%
+TAGESCL_COMP_SC_RECOVER_AT_EXEC                   1635        0.140%             1635        0.140%
+                                               1168095      100.000%          1168095      100.000%
                                                   1.58         1.25              1.58         1.25
 
-TAGESCL_COMP_BTB_MISS_TAGE_BASE_CORRECT         347898       97.883%           347898       97.883%
-TAGESCL_COMP_BTB_MISS_TAGE_BASE_MISPREDICT           286        0.080%              286        0.080%
+TAGESCL_COMP_BTB_MISS_TAGE_BASE_CORRECT         347897       97.883%           347897       97.883%
+TAGESCL_COMP_BTB_MISS_TAGE_BASE_RECOVER_AT_EXEC           284        0.080%              284        0.080%
 TAGESCL_COMP_BTB_MISS_TAGE_SHORT_CORRECT          3927        1.105%             3927        1.105%
-TAGESCL_COMP_BTB_MISS_TAGE_SHORT_MISPREDICT            29        0.008%               29        0.008%
+TAGESCL_COMP_BTB_MISS_TAGE_SHORT_RECOVER_AT_EXEC            29        0.008%               29        0.008%
 TAGESCL_COMP_BTB_MISS_TAGE_LONG_CORRECT           3181        0.895%             3181        0.895%
-TAGESCL_COMP_BTB_MISS_TAGE_LONG_MISPREDICT            31        0.009%               31        0.009%
+TAGESCL_COMP_BTB_MISS_TAGE_LONG_RECOVER_AT_EXEC            31        0.009%               31        0.009%
 TAGESCL_COMP_BTB_MISS_LOOP_CORRECT                   0        0.000%                0        0.000%
-TAGESCL_COMP_BTB_MISS_LOOP_MISPREDICT                0        0.000%                0        0.000%
+TAGESCL_COMP_BTB_MISS_LOOP_RECOVER_AT_EXEC             0        0.000%                0        0.000%
 TAGESCL_COMP_BTB_MISS_SC_CORRECT                    61        0.017%               61        0.017%
-TAGESCL_COMP_BTB_MISS_SC_MISPREDICT                 11        0.003%               11        0.003%
-                                                355424      100.000%           355424      100.000%
+TAGESCL_COMP_BTB_MISS_SC_RECOVER_AT_EXEC            11        0.003%               11        0.003%
+                                                355421      100.000%           355421      100.000%
                                                   0.06         0.44              0.06         0.44
 
-TAGESCL_CONF_0_PER_BASE_MISPREDICT                   0        0.000%                0        0.000%
-TAGESCL_CONF_1_PER_BASE_MISPREDICT                 436        3.478%              436        3.478%
-TAGESCL_CONF_2_PER_BASE_MISPREDICT                   0        0.000%                0        0.000%
-TAGESCL_CONF_3_PER_BASE_MISPREDICT                 289        2.306%              289        2.306%
-TAGESCL_CONF_0_PER_SHORT_MISPREDICT                591        4.715%              591        4.715%
-TAGESCL_CONF_1_PER_SHORT_MISPREDICT               1440       11.488%             1440       11.488%
-TAGESCL_CONF_2_PER_SHORT_MISPREDICT                487        3.885%              487        3.885%
-TAGESCL_CONF_3_PER_SHORT_MISPREDICT               1906       15.205%             1906       15.205%
-TAGESCL_CONF_0_PER_LONG_MISPREDICT                 920        7.339%              920        7.339%
-TAGESCL_CONF_1_PER_LONG_MISPREDICT                2079       16.586%             2079       16.586%
-TAGESCL_CONF_2_PER_LONG_MISPREDICT                 616        4.914%              616        4.914%
-TAGESCL_CONF_3_PER_LONG_MISPREDICT                2136       17.040%             2136       17.040%
-TAGESCL_CONF_0_PER_LOOP_MISPREDICT                   0        0.000%                0        0.000%
-TAGESCL_CONF_1_PER_LOOP_MISPREDICT                   0        0.000%                0        0.000%
-TAGESCL_CONF_2_PER_LOOP_MISPREDICT                   0        0.000%                0        0.000%
-TAGESCL_CONF_3_PER_LOOP_MISPREDICT                   0        0.000%                0        0.000%
-TAGESCL_CONF_0_PER_SC_MISPREDICT                   214        1.707%              214        1.707%
-TAGESCL_CONF_1_PER_SC_MISPREDICT                  1109        8.847%             1109        8.847%
-TAGESCL_CONF_2_PER_SC_MISPREDICT                   166        1.324%              166        1.324%
-TAGESCL_CONF_3_PER_SC_MISPREDICT                   146        1.165%              146        1.165%
+TAGESCL_CONF_0_PER_BASE_RECOVER_AT_EXEC              0        0.000%                0        0.000%
+TAGESCL_CONF_1_PER_BASE_RECOVER_AT_EXEC            436        3.478%              436        3.478%
+TAGESCL_CONF_2_PER_BASE_RECOVER_AT_EXEC              0        0.000%                0        0.000%
+TAGESCL_CONF_3_PER_BASE_RECOVER_AT_EXEC            289        2.306%              289        2.306%
+TAGESCL_CONF_0_PER_SHORT_RECOVER_AT_EXEC           591        4.715%              591        4.715%
+TAGESCL_CONF_1_PER_SHORT_RECOVER_AT_EXEC          1440       11.488%             1440       11.488%
+TAGESCL_CONF_2_PER_SHORT_RECOVER_AT_EXEC           487        3.885%              487        3.885%
+TAGESCL_CONF_3_PER_SHORT_RECOVER_AT_EXEC          1906       15.205%             1906       15.205%
+TAGESCL_CONF_0_PER_LONG_RECOVER_AT_EXEC            920        7.339%              920        7.339%
+TAGESCL_CONF_1_PER_LONG_RECOVER_AT_EXEC           2079       16.586%             2079       16.586%
+TAGESCL_CONF_2_PER_LONG_RECOVER_AT_EXEC            616        4.914%              616        4.914%
+TAGESCL_CONF_3_PER_LONG_RECOVER_AT_EXEC           2136       17.040%             2136       17.040%
+TAGESCL_CONF_0_PER_LOOP_RECOVER_AT_EXEC              0        0.000%                0        0.000%
+TAGESCL_CONF_1_PER_LOOP_RECOVER_AT_EXEC              0        0.000%                0        0.000%
+TAGESCL_CONF_2_PER_LOOP_RECOVER_AT_EXEC              0        0.000%                0        0.000%
+TAGESCL_CONF_3_PER_LOOP_RECOVER_AT_EXEC              0        0.000%                0        0.000%
+TAGESCL_CONF_0_PER_SC_RECOVER_AT_EXEC              214        1.707%              214        1.707%
+TAGESCL_CONF_1_PER_SC_RECOVER_AT_EXEC             1109        8.847%             1109        8.847%
+TAGESCL_CONF_2_PER_SC_RECOVER_AT_EXEC              166        1.324%              166        1.324%
+TAGESCL_CONF_3_PER_SC_RECOVER_AT_EXEC              146        1.165%              146        1.165%
                                                  12535      100.000%            12535      100.000%
                                                   8.85         4.18              8.85         4.18
 
 TAGESCL_SC_SMALLLSUM                              4214        0.361%             4214        0.361%
 TAGESCL_SC_SMALLLFIRST                              61        0.005%               61        0.005%
 TAGESCL_SC_SMALLLSECOND                            160        0.014%              160        0.014%
-TAGESCL_SC_IDENTICAL                           1161304       99.620%          1161304       99.620%
-                                               1165739      100.000%          1165739      100.000%
+TAGESCL_SC_IDENTICAL                           1161302       99.620%          1161302       99.620%
+                                               1165737      100.000%          1165737      100.000%
                                                   2.99         2.98              2.99         2.98
 
-CRS_UNDERFLOW_ON_PATH                               22        4.120%               22        4.120%
-CRS_UNDERFLOW_OFF_PATH                             512       95.880%              512       95.880%
-                                                   534      100.000%              534      100.000%
-                                                  0.96         0.94              0.96         0.94
+CRS_UNDERFLOW_ON_PATH                               22        1.157%               22        1.157%
+CRS_UNDERFLOW_OFF_PATH                            1880       98.843%             1880       98.843%
+                                                  1902      100.000%             1902      100.000%
+                                                  0.99         0.98              0.99         0.98
 
 
 
