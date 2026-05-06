@@ -123,8 +123,16 @@ def branch_mispred_ratio_bp(bp: Dict[str, float]) -> float:
     wants a different denominator (e.g. all executed CF ops), swap counters
     after inspecting inst.stat.0.csv / course forum guidance.
     """
+    # Primary (newer Scarab stats):
     mis = bp.get("BP_ON_PATH_CONF_MISPRED_count", 0.0)
     cor = bp.get("BP_ON_PATH_CONF_CORRECT_count", 0.0)
+    if mis + cor > 0.0:
+        return safe_ratio(mis, mis + cor)
+
+    # Fallback (present in your generated CSVs): conditional branch outcomes.
+    # This yields a non-empty, meaningful branch-mispred trend.
+    mis = bp.get("CBR_RECOVER_MISPREDICT_count", 0.0)
+    cor = bp.get("CBR_CORRECT_count", 0.0)
     return safe_ratio(mis, mis + cor)
 
 
@@ -147,6 +155,17 @@ def collect_metrics(
     )
 
 
+def pretty_benchmark_label(name: str) -> str:
+    if name == "Avg":
+        return name
+    short = name
+    if "." in short:
+        short = short.split(".", 1)[1]
+    if short.endswith("_r"):
+        short = short[:-2]
+    return short
+
+
 def plot_grouped(
     benchmarks: List[str],
     series: Dict[str, List[float]],
@@ -155,42 +174,34 @@ def plot_grouped(
     out_path: str,
     ylim: Optional[Tuple[float, float]] = None,
 ) -> None:
-    colors = [
-        "#800000",
-        "#4363d8",
-        "#3cb44b",
-        "#f58231",
-        "#911eb4",
-        "#46f0f0",
-        "#f032e6",
-        "#000075",
-    ]
+    colors = ["#4C72B0", "#DD8452", "#55A868", "#C44E52", "#8172B3", "#937860"]
     ind = np.arange(len(benchmarks))
     n = len(series)
-    width = min(0.22, 0.9 / max(n + 1, 1))
-    fig, ax = plt.subplots(figsize=(16, 4.8), dpi=100)
+    width = min(0.20, 0.85 / max(n + 1, 1))
+    fig, ax = plt.subplots(figsize=(18, 6.2), dpi=110)
     start = -int(n / 2)
     for idx, key in enumerate(series.keys()):
-        hatch = "\\\\" if idx % 2 else "///"
         ax.bar(
             ind + (start + idx) * width,
             series[key],
             width=width,
-            fill=False,
-            hatch=hatch,
+            alpha=0.90,
             color=colors[idx % len(colors)],
-            edgecolor=colors[idx % len(colors)],
+            edgecolor="#333333",
+            linewidth=0.6,
             label=key,
         )
     ax.set_title(title)
     ax.set_xlabel("Benchmark")
     ax.set_ylabel(ylabel)
     ax.set_xticks(ind)
-    ax.set_xticklabels(benchmarks, rotation=28, ha="right")
-    ax.grid(axis="x")
+    ax.set_xticklabels([pretty_benchmark_label(b) for b in benchmarks], rotation=38, ha="right")
+    ax.tick_params(axis="x", labelsize=9)
+    ax.tick_params(axis="y", labelsize=10)
+    ax.grid(axis="y", linestyle="--", alpha=0.35)
     if ylim is not None:
         ax.set_ylim(ylim)
-    ax.legend(loc="upper left", ncols=2)
+    ax.legend(loc="upper left", ncols=2, fontsize=9, frameon=True)
     fig.tight_layout()
     fig.savefig(out_path, format="png", bbox_inches="tight")
     plt.close(fig)
@@ -252,14 +263,14 @@ def main() -> None:
         labels,
         ipc_data,
         "IPC (dimensionless: instr. / cycle)",
-        "Instructions per cycle (from Periodic region; not *_total_* counters)",
+        "Instructions Per Cycle",
         os.path.join(args.output_dir, "Figure_ipc.png"),
     )
     plot_grouped(
         labels,
         br_data,
         "Branch mispred. ratio (dimensionless)",
-        "On-path branch predictor (mispred / (mispred + correct); see plot_lab1.py docstring)",
+        "Branch Misprediction Ratio (On-path)",
         os.path.join(args.output_dir, "Figure_branch_mispred_ratio.png"),
         ylim=(0.0, None),
     )
@@ -267,7 +278,7 @@ def main() -> None:
         labels,
         dc_data,
         "D-cache miss ratio (dimensionless: misses / accesses)",
-        "On-path: DCACHE_MISS_ONPATH / (miss + hit + ST buffer hit on-path); interval _count only",
+        "D-cache Miss Ratio (On-path)",
         os.path.join(args.output_dir, "Figure_dcache_miss_ratio.png"),
         ylim=(0.0, None),
     )
@@ -275,7 +286,7 @@ def main() -> None:
         labels,
         ic_data,
         "I-cache miss ratio (dimensionless: misses / accesses)",
-        "On-path: ICACHE_MISS_ONPATH / (miss + hit on-path); interval _count only",
+        "I-cache Miss Ratio (On-path)",
         os.path.join(args.output_dir, "Figure_icache_miss_ratio.png"),
         ylim=(0.0, None),
     )
