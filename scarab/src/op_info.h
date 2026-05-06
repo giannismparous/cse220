@@ -1,0 +1,101 @@
+/* Copyright 2020 HPS/SAFARI Research Groups
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
+/***************************************************************************************
+ * File         : op_info.h
+ * Author       : HPS Research Group
+ * Date         : 2/19/2001
+ * Description  :
+ ***************************************************************************************/
+
+#ifndef __OP_INFO_H__
+#define __OP_INFO_H__
+
+#include "globals/global_types.h"
+
+/**************************************************************************************/
+// Defines
+
+#define MAX_DEPS 10
+#define MAX_OUTS 3
+
+/**************************************************************************************/
+
+typedef struct Generic_Op_Info_struct {
+  Counter unique_num;
+  Addr addr; /* pc */
+  Op* op;
+  Counter fetch_cycle;
+} Generic_Op_Info;
+
+typedef enum Dep_Type_enum {
+  REG_DATA_DEP,
+  MEM_ADDR_DEP,
+  MEM_DATA_DEP,
+  NUM_DEP_TYPES,
+} Dep_Type;
+
+typedef struct Src_Info_struct {
+  Dep_Type type;
+  struct Op_struct* op;
+  Counter op_num;
+  Counter unique_num;
+} Src_Info;
+
+/**************************************************************************************/
+/* Dynamic src_info[] on Op: capacity grows 2 -> 8 -> 128, then doubles.
+ * Use op_sources_add() for every oracle dependency (reg, mem addr, mem data, etc.). */
+
+uns op_sources_add(Op* op, Dep_Type type, Op* src_op, Counter src_op_num, Counter src_unique_num);
+void op_sources_free(Op* op);
+
+void op_sources_set_not_rdy(Op* op, uns bit);
+void op_sources_clear_not_rdy(Op* op, uns bit);
+Flag op_sources_test_not_rdy(const Op* op, uns bit);
+Flag op_sources_not_rdy_is_clear(const Op* op);
+
+/**************************************************************************************/
+/* The 'Op_Info' struct holds information that is unique to the
+ * current instance of the instruction (data values, etc.)
+ * typedef in globals/global_types.h */
+
+struct Op_Info_struct {
+  // mem op fields
+  Addr va;       // virtual address for memory instructions
+  uns mem_size;  // memory data size now became dynamic property due to REP STRING
+
+  // all op fields
+  Addr npc;  // the true next pc after the instruction
+
+  // control flow fields
+  Addr target;             // decoded target of branch, set by oracle
+  Flag dir;                // true direction of branch, set by oracle
+  Flag dcmiss;  // dcache miss has occurred
+
+  Flag l1_miss;             // is this op an L1 data miss?
+  Flag l1_miss_satisfied;   // l1 miss caused by this op is already satisfied
+  Flag dep_on_l1_miss;      // op is waiting for an l1_miss to be satisfied
+  Flag was_dep_on_l1_miss;  // op was waiting for an l1_miss to be satisfied, but not any more
+};
+
+/**************************************************************************************/
+
+#endif /* #ifndef __OP_INFO_H__ */
