@@ -30,6 +30,7 @@
 #define __DCACHE_STAGE_H__
 
 #include "libs/cache_lib.h"
+#include "libs/hash_lib.h"
 
 #include "stage_data.h"
 
@@ -49,6 +50,8 @@ typedef struct Dcache_Stage_struct {
   Cache dcache;      /* the data cache */
   Ports* ports;      /* read and write ports to the data cache (per bank) */
   Cache pref_dcache; /* prefetcher cache for data cache */
+  Cache dcache_3c_fa;  /* fully-associative shadow cache for 3C classification */
+  Hash_Table dcache_3c_seen_lines; /* tracks whether a line has ever been touched */
 
   Counter idle_cycle; /* Cycle the cache will be idle */
   Flag mem_blocked;   /* Are memory request buffers (aka MSHRs) full? */

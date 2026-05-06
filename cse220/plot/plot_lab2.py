@@ -107,6 +107,13 @@ def dcache_miss_ratio(mem: Dict[str, float]) -> float:
     return safe_ratio(miss, den)
 
 
+def dcache_3c_counts(mem: Dict[str, float]) -> Tuple[float, float, float]:
+    compulsory = mem.get("DCACHE_MISS_COMPULSORY_count", 0.0)
+    capacity = mem.get("DCACHE_MISS_CAPACITY_count", 0.0)
+    conflict = mem.get("DCACHE_MISS_CONFLICT_count", 0.0)
+    return compulsory, capacity, conflict
+
+
 def pretty_benchmark_label(name: str) -> str:
     if name == "Avg":
         return name
@@ -166,6 +173,34 @@ def plot_grouped(
     plt.close(fig)
 
 
+def plot_stacked_3c_by_config(
+    configs: List[str],
+    compulsory: List[float],
+    capacity: List[float],
+    conflict: List[float],
+    out_path: str,
+) -> None:
+    ind = np.arange(len(configs))
+    fig, ax = plt.subplots(figsize=(12, 5.5), dpi=110)
+
+    ax.bar(ind, compulsory, color="#4C72B0", edgecolor="#333333", linewidth=0.5, label="Compulsory")
+    ax.bar(ind, capacity, bottom=compulsory, color="#DD8452", edgecolor="#333333", linewidth=0.5, label="Capacity")
+    bottom_conflict = [c + k for c, k in zip(compulsory, capacity)]
+    ax.bar(ind, conflict, bottom=bottom_conflict, color="#55A868", edgecolor="#333333", linewidth=0.5, label="Conflict")
+
+    ax.set_title("Lab2 3C D-cache Miss Breakdown (aggregated across benchmarks)")
+    ax.set_xlabel("D-cache configuration")
+    ax.set_ylabel("Miss share")
+    ax.set_ylim(0.0, 1.0)
+    ax.set_xticks(ind)
+    ax.set_xticklabels(configs, rotation=25, ha="right")
+    ax.grid(axis="y", linestyle="--", alpha=0.35)
+    ax.legend(loc="upper right")
+    fig.tight_layout()
+    fig.savefig(out_path, format="png", bbox_inches="tight")
+    plt.close(fig)
+
+
 def slice_series(
     labels_full: List[str], series_full: Dict[str, List[float]], start: int, end: int
 ) -> Tuple[List[str], Dict[str, List[float]]]:
@@ -190,6 +225,9 @@ def main() -> None:
 
     ipc_data: Dict[str, List[float]] = {c: [] for c in configs}
     dcmr_data: Dict[str, List[float]] = {c: [] for c in configs}
+    c3_comp_counts: Dict[str, float] = {c: 0.0 for c in configs}
+    c3_cap_counts: Dict[str, float] = {c: 0.0 for c in configs}
+    c3_conf_counts: Dict[str, float] = {c: 0.0 for c in configs}
 
     for cfg in configs:
         for wl in workloads:
@@ -198,6 +236,10 @@ def main() -> None:
             mem = load_interval_counts(mem_csv)
             ipc_data[cfg].append(periodic_ipc_from_memory(mem_csv))
             dcmr_data[cfg].append(dcache_miss_ratio(mem))
+            comp, cap, conf = dcache_3c_counts(mem)
+            c3_comp_counts[cfg] += comp
+            c3_cap_counts[cfg] += cap
+            c3_conf_counts[cfg] += conf
 
     n = len(workloads)
     for cfg in configs:
@@ -245,6 +287,29 @@ def main() -> None:
             os.path.join(args.output_dir, f"Figure_lab2_dcache_miss_ratio_part{i}.png"),
             ylim=(0.0, None),
         )
+
+    # 3C stacked breakdown by cache configuration.
+    comp_share: List[float] = []
+    cap_share: List[float] = []
+    conf_share: List[float] = []
+    for cfg in configs:
+        total = c3_comp_counts[cfg] + c3_cap_counts[cfg] + c3_conf_counts[cfg]
+        if total <= 0.0:
+            comp_share.append(0.0)
+            cap_share.append(0.0)
+            conf_share.append(0.0)
+        else:
+            comp_share.append(c3_comp_counts[cfg] / total)
+            cap_share.append(c3_cap_counts[cfg] / total)
+            conf_share.append(c3_conf_counts[cfg] / total)
+
+    plot_stacked_3c_by_config(
+        configs,
+        comp_share,
+        cap_share,
+        conf_share,
+        os.path.join(args.output_dir, "Figure_lab2_3c_miss_breakdown.png"),
+    )
 
     print("Wrote lab2 figures to:", args.output_dir)
 

@@ -81,6 +81,7 @@ static inline void dcache_fill_wp_collect_stats(Dcache_Data* line, Mem_Req* req)
 static inline void dcache_hit_wp_collect_stats(Dcache_Data* line, Op* op);
 static inline Flag dcache_miss_new_mem_req(Op* op, Addr line_addr, Mem_Req_Type mem_req_type);
 static inline void dcache_miss_extra_access(Op* op, Cache* cache, Addr line_addr, uns8 proc_id, uns8 cache_cycle);
+static inline void dcache_miss_classify_3c(Op* op, Addr line_addr);
 
 static inline Dcache_Data* dcache_fill_get_cacheline(Mem_Req* req);
 static inline void dcache_fill_process_cacheline(Mem_Req* req, Dcache_Data* data);
@@ -120,6 +121,11 @@ void init_dcache_stage(uns8 proc_id, const char* name) {
   if (DC_PREF_CACHE_ENABLE)
     init_cache(&dc->pref_dcache, "DC_PREF_CACHE", DC_PREF_CACHE_SIZE, DC_PREF_CACHE_ASSOC, DCACHE_LINE_SIZE,
                sizeof(Dcache_Data), DCACHE_REPL);
+
+  // Lab2: fully-associative cache with same capacity as DCACHE for 3C breakdown.
+  init_cache(&dc->dcache_3c_fa, "DCACHE_3C_FA", DCACHE_SIZE, DCACHE_SIZE / DCACHE_LINE_SIZE, DCACHE_LINE_SIZE,
+             sizeof(Dcache_Data), REPL_TRUE_LRU);
+  init_hash_table(&dc->dcache_3c_seen_lines, "DCACHE_3C_SEEN_LINES", 262147, sizeof(Flag));
 
   memset(dc->rand_wb_state, 0, NUM_ELEMENTS(dc->rand_wb_state));
 }
@@ -533,6 +539,47 @@ static inline Flag dcache_miss_new_mem_req(Op* op, Addr line_addr, Mem_Req_Type 
                      DCACHE_CYCLES - 1 + op->inst_info->extra_ld_latency, op, dcache_fill_line, op->unique_num, 0);
 }
 
+static inline void dcache_miss_classify_3c(Op* op, Addr line_addr) {
+  Addr fa_line_addr = 0;
+  Addr fa_repl_addr = 0;
+  Flag new_seen_entry = FALSE;
+  Dcache_Data* fa_line;
+
+  if (op->off_path)
+    return;
+
+  if (op->inst_info->table_info.mem_type != MEM_LD && op->inst_info->table_info.mem_type != MEM_ST)
+    return;
+
+  // First-touch check for compulsory misses.
+  hash_table_access_create(&dc->dcache_3c_seen_lines, (int64)line_addr, &new_seen_entry);
+
+  // Fully-associative cache with same capacity distinguishes conflict vs. capacity.
+  fa_line = (Dcache_Data*)cache_access(&dc->dcache_3c_fa, op->oracle_info.va, &fa_line_addr, TRUE);
+  if (!fa_line)
+    cache_insert(&dc->dcache_3c_fa, dc->proc_id, op->oracle_info.va, &fa_line_addr, &fa_repl_addr);
+
+  if (new_seen_entry) {
+    STAT_EVENT(op->proc_id, DCACHE_MISS_COMPULSORY);
+    if (op->inst_info->table_info.mem_type == MEM_LD)
+      STAT_EVENT(op->proc_id, DCACHE_MISS_COMPULSORY_LD);
+    else
+      STAT_EVENT(op->proc_id, DCACHE_MISS_COMPULSORY_ST);
+  } else if (fa_line) {
+    STAT_EVENT(op->proc_id, DCACHE_MISS_CONFLICT);
+    if (op->inst_info->table_info.mem_type == MEM_LD)
+      STAT_EVENT(op->proc_id, DCACHE_MISS_CONFLICT_LD);
+    else
+      STAT_EVENT(op->proc_id, DCACHE_MISS_CONFLICT_ST);
+  } else {
+    STAT_EVENT(op->proc_id, DCACHE_MISS_CAPACITY);
+    if (op->inst_info->table_info.mem_type == MEM_LD)
+      STAT_EVENT(op->proc_id, DCACHE_MISS_CAPACITY_LD);
+    else
+      STAT_EVENT(op->proc_id, DCACHE_MISS_CAPACITY_ST);
+  }
+}
+
 static inline void dcache_cacheline_hit(Op* op, Addr line_addr, Dcache_Data* line) {
   /* prefetching handle */
   if (PREF_FRAMEWORK_ON && (PREF_UPDATE_ON_WRONGPATH || !op->off_path)) {
@@ -628,6 +675,7 @@ static inline void dcache_cacheline_miss(Op* op, Addr line_addr) {
       }
 
       if (!op->off_path) {
+        dcache_miss_classify_3c(op, line_addr);
         STAT_EVENT(op->proc_id, DCACHE_MISS);
         STAT_EVENT(op->proc_id, DCACHE_MISS_ONPATH);
         STAT_EVENT(op->proc_id, DCACHE_MISS_LD_ONPATH);
@@ -688,6 +736,7 @@ static inline void dcache_cacheline_miss(Op* op, Addr line_addr) {
       }
 
       if (!op->off_path) {
+        dcache_miss_classify_3c(op, line_addr);
         STAT_EVENT(op->proc_id, DCACHE_MISS);
         STAT_EVENT(op->proc_id, DCACHE_MISS_ONPATH);
         STAT_EVENT(op->proc_id, DCACHE_MISS_ST_ONPATH);
